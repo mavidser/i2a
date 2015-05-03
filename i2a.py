@@ -8,18 +8,21 @@ r"""
 
 i2a creates ASCII representation of images right on your terminal.
 
-Usage:
-  i2a [options] [FILE | URL]
-  i2a (-h | --help)
-  i2a --version
+Usage: i2a [options] [FILE]
+
 Options:
   -h --help            Show this screen.
   --version            Show version.
   --colors             Show colored output.
+  --invert             Invert the colors.
+  --bkg=<BLACK|WHITE>  Specify the background color.
   --height=<val>       Set the height in number of characters.
   --width=<val>        Set the width in number of characters
-  --contrast=<factor>  Manually set contrast [default: 1.75].
+  --contrast=<factor>  Manually set contrast [default: 1.5].
+  --alt-chars          Use an alternate set of characters.
 """
+
+from __future__ import print_function
 import subprocess
 import os
 import sys
@@ -29,54 +32,82 @@ from docopt import docopt
 
 __version__ = '0.0.1'
 
-ASCII = "Q0RMNWBDHK@$U8&AOkYbZGPXgE4dVhgSqm6pF523yfwCJ#TnuLjz7oeat1[]!?I}*{srlcxvi)><\\)|\"/+=^;,:'_-`. "
+_ASCII = "@80GCLft1i;:,. "
+_ASCII_2 = "Q0RMNWBDHK@$U8&AOkYbZGPXgE4dVhgSqm6pF523yfwCJ#TnuLjz7oeat1[]!?I}*{srlcxvi)><\\)|\"/+=^;,:'_-`. "
 
-TTY_HEIGHT, TTY_WIDTH = map(int,subprocess.check_output(['stty', 'size']).split())
+_HEIGHT, _WIDTH = map(int,subprocess.check_output(['stty', 'size']).split())
 
-def old():
-    im = Image.open('i2a.jpg')
-
-    print(TTY_WIDTH,TTY_HEIGHT)
-
-    print(im.size)
+def display_output(arguments):
+    '''Display the ASCII representation of the image.'''
+    global _ASCII
+    if arguments['--alt-chars']:
+        _ASCII=_ASCII_2
+    im = Image.open(arguments['FILE'])
     aspect_ratio    = float(im.size[0])/im.size[1]
-    print(aspect_ratio)
-    scaled_height   = TTY_WIDTH / aspect_ratio
-    scaled_width    = TTY_HEIGHT * aspect_ratio
+    scaled_height   = _WIDTH / aspect_ratio
+    scaled_width    = _HEIGHT * aspect_ratio*2
 
-    print(scaled_width, TTY_HEIGHT)
-    print(TTY_WIDTH, scaled_height)
+    if scaled_width > _WIDTH:
+        width = int(_WIDTH)
+        height = int(scaled_height)/2
 
-    im = im.resize((64,24))
+    elif scaled_height > _HEIGHT:
+        width = int(scaled_width)
+        height = int(_HEIGHT)
 
+    if arguments['--width']:
+        width = int(arguments['--width'])
+        height = int(width / aspect_ratio / 2)
 
-    # img = enhancer.enhance(1.75).getdata()
-    enhancer2 = ImageEnhance.Contrast(im)
-    img = enhancer2.enhance(1.75).getdata()
-    # img = im.getdata()
-    im = im.convert('L') #Grayscale
+    elif arguments['--height']:
+        height = int(arguments['--height'])
+        width = int(height * aspect_ratio * 2)
+
+    if arguments['--width'] and arguments['--height']:
+        height = int(arguments['--height'])
+        width = int(arguments['--width'])
+
+    im = im.resize((width,height))
 
     enhancer = ImageEnhance.Contrast(im)
-    im2 = enhancer.enhance(1.75)
-    _=0
-    for count,i in enumerate(im2.getdata()):
+    im = enhancer.enhance(float(arguments['--contrast']))
+    img = im.getdata()
+    im = im.convert('L') #Grayscale
+
+    if not arguments['--invert']:
+        _ASCII = _ASCII[::-1]
+
+    bg=None;
+    if arguments['--bkg']=='BLACK':
+        bg=rgb(0,0,0)
+        fg=rgb(5,5,5)
+    elif arguments['--bkg']=='WHITE':
+        bg=rgb(5,5,5)
+        fg=rgb(0,0,0)
+
+    row_len=0
+    for count,i in enumerate(im.getdata()):
+        ascii_char = _ASCII[int(((i/255.0))*(len((_ASCII))-1))]
         try:
+            if not arguments['--colors']:
+                raise Exception
             color = rgb(int((img[count][0]/255.0)*5),int((img[count][1]/255.0)*5),int((img[count][2]/255.0)*5))
+            print_color(ascii_char, end='', fg=color, bg=bg)
         except:
-            color = rgb(img[count],img[count],img[count])
-        print_color(ASCII[int((1-(i/255.0))*(len((ASCII))-1))],end='', 
-                    fg=color)
-        _+=1
-        if _==64:
-            _=0
+            if bg:
+                print_color(ascii_char, end='', fg=fg, bg=bg)
+            else:
+                print(ascii_char, end='')
+        row_len+=1
+        if row_len==width:
+            row_len=0
             print('')
-# im.show()
+
 def main():
     '''i2a creates ASCII representation of images right on your terminal.'''
     arguments = docopt(__doc__, version=__version__)
-
-    if arguments['FILE'] or arguments['URL']:
-        print(_get_image(arguments['URL']))
+    if arguments['FILE']:
+        display_output(arguments)
     else:
         print(__doc__)
 
