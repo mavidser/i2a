@@ -1,4 +1,4 @@
-r"""
+"""
     ###     ####         ######
           ###  ###      #    ###
     ###         ###       ######
@@ -15,7 +15,7 @@ Options:
   --version            Show version.
   --colors             Show colored output.
   --invert             Invert the colors.
-  --bkg=<BLACK|WHITE>  Specify the background color.
+  --bkg=(BLACK|WHITE)  Specify the background color.
   --height=<val>       Set the height in number of characters.
   --width=<val>        Set the width in number of characters
   --contrast=<factor>  Manually set contrast [default: 1.5].
@@ -35,7 +35,10 @@ __version__ = '0.0.1'
 _ASCII = "@80GCLft1i;:,. "
 _ASCII_2 = "Q0RMNWBDHK@$U8&AOkYbZGPXgE4dVhgSqm6pF523yfwCJ#TnuLjz7oeat1[]!?I}*{srlcxvi)><\\)|\"/+=^;,:'_-`. "
 
-_HEIGHT, _WIDTH = map(int,subprocess.check_output(['stty', 'size']).split())
+try:
+    _HEIGHT, _WIDTH = map(int,subprocess.check_output(['stty', 'size']).split())
+except:
+    _HEIGHT, _WIDTH = 50, 50
 
 def display_output(arguments):
     '''Display the ASCII representation of the image.'''
