@@ -49,7 +49,7 @@ def display_output(arguments):
 
     if scaled_width > _WIDTH:
         width = int(_WIDTH)
-        height = int(scaled_height)/2
+        height = int(scaled_height/2)
 
     elif scaled_height > _HEIGHT:
         width = int(scaled_width)
