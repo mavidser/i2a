@@ -67,7 +67,7 @@ def display_output(arguments):
         height = int(arguments['--height'])
         width = int(arguments['--width'])
 
-    im = im.resize((width,height))
+    im = im.resize((width,height),resample=Image.ANTIALIAS)
 
     enhancer = ImageEnhance.Contrast(im)
     im = enhancer.enhance(float(arguments['--contrast']))
