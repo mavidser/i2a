@@ -29,7 +29,7 @@ from colors import *
 from PIL import Image, ImageEnhance
 from docopt import docopt
 
-__version__ = '0.0.1'
+__version__ = '1.0'
 
 _ASCII = "@80GCLft1i;:,. "
 _ASCII_2 = "Q0RMNWBDHK@$U8&AOkYbZGPXgE4dVhgSqm6pF523yfwCJ#TnuLjz7oeat1[]!?I}*{srlcxvi)><\\)|\"/+=^;,:'_-`. "
