@@ -29,7 +29,7 @@ from colors import *
 from PIL import Image, ImageEnhance
 from docopt import docopt
 
-__version__ = '1.0'
+__version__ = '1.1'
 
 _ASCII = "@80GCLft1i;:,. "
 _ASCII_2 = "Q0RMNWBDHK@$U8&AOkYbZGPXgE4dVhgSqm6pF523yfwCJ#TnuLjz7oeat1[]!?I}*{srlcxvi)><\\)|\"/+=^;,:'_-`. "
@@ -48,6 +48,7 @@ def display_output(arguments):
         im = Image.open(arguments['FILE'])
     except:
         raise IOError('Unable to open the file.')
+    im = im.convert("RGBA")
     aspect_ratio    = float(im.size[0])/im.size[1]
     scaled_height   = _WIDTH / aspect_ratio
     scaled_width    = _HEIGHT * aspect_ratio*2
