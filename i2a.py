@@ -6,7 +6,7 @@
     ###    ####        ###    ##
     ###   ##########    ##### ###
 
-i2a creates ASCII representation of images right on your terminal.
+i2a creates ASCII art from images right on your terminal.
 
 Usage: i2a [options] [FILE]
 
@@ -17,7 +17,7 @@ Options:
   --invert             Invert the colors.
   --bkg=(BLACK|WHITE)  Specify the background color.
   --height=<val>       Set the height in number of characters.
-  --width=<val>        Set the width in number of characters
+  --width=<val>        Set the width in number of characters.
   --contrast=<factor>  Manually set contrast [default: 1.5].
   --alt-chars          Use an alternate set of characters.
 """
@@ -41,7 +41,7 @@ except:
     _HEIGHT, _WIDTH = 50, 50
 
 def display_output(arguments):
-    '''Display the ASCII representation of the image.'''
+    '''Display the ASCII art from the image.'''
     global _ASCII
     if arguments['--alt-chars']:
         _ASCII=_ASCII_2
@@ -107,7 +107,7 @@ def display_output(arguments):
             print('')
 
 def main():
-    '''i2a creates ASCII representation of images right on your terminal.'''
+    '''i2a creates ASCII art from images right on your terminal.'''
     arguments = docopt(__doc__, version=__version__)
     if arguments['FILE']:
         display_output(arguments)
