@@ -15,7 +15,7 @@ $ pip install i2a
 ### Option 2: From source
 
 ```bash
-$ git clone --recursive http://github.com/mavidser/i2a.git
+$ git clone https://github.com/mavidser/i2a.git
 $ cd i2a/
 $ python setup.py install
 ```
