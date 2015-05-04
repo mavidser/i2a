@@ -6,52 +6,52 @@ class TestGeneratedArt(unittest.TestCase):
 
   def test_basic(self):
     command = 'python ../i2a/i2a.py nyan.png'
-    print('-----------------------------\n\n'+command+'\n\n')
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
   def test_color(self):
     command = 'python ../i2a/i2a.py nyan.png --colors'
-    print('-----------------------------\n\n'+command+'\n\n')
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
   def test_invert(self):
     command = 'python ../i2a/i2a.py nyan.png --invert'
-    print('-----------------------------\n\n'+command+'\n\n')
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
   def test_bg_black(self):
     command = 'python ../i2a/i2a.py nyan.png --bg=BLACK'
-    print('-----------------------------\n\n'+command+'\n\n')
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
   def test_bg_white(self):
     command = 'python ../i2a/i2a.py nyan.png --bg=WHITE'
-    print('-----------------------------\n\n'+command+'\n\n')
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
   def test_height(self):
     command = 'python ../i2a/i2a.py nyan.png --height=10'
-    print('-----------------------------\n\n'+command+'\n\n')
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
   def test_width(self):
     command = 'python ../i2a/i2a.py nyan.png --width=40'
-    print('-----------------------------\n\n'+command+'\n\n')
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
   def test_height_width(self):
     command = 'python ../i2a/i2a.py nyan.png --height=20 --width=40'
-    print('-----------------------------\n\n'+command+'\n\n')
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
   def test_contrast(self):
     command = 'python ../i2a/i2a.py nyan.png --contrast=3'
-    print('-----------------------------\n\n'+command+'\n\n')
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
   def test_alt_chars(self):
     command = 'python ../i2a/i2a.py nyan.png --alt-chars'
-    print('-----------------------------\n\n'+command+'\n\n')
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
 
