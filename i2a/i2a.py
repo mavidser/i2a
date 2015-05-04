@@ -12,10 +12,11 @@ Usage: i2a [options] [FILE]
 
 Options:
   -h --help            Show this screen.
-  --version            Show version.
-  --colors             Show colored output.
-  --invert             Invert the colors.
-  --bg=(BLACK|WHITE)  Specify the background color.
+  -v --version         Show version.
+  -c --colors          Show colored output.
+  -b --bold            Output bold characters
+  -i --invert          Invert the colors.
+  --bg=(BLACK|WHITE)   Specify the background color.
   --height=<val>       Set the height in number of characters.
   --width=<val>        Set the width in number of characters.
   --contrast=<factor>  Manually set contrast [default: 1.5].
@@ -29,7 +30,7 @@ from colors import *
 from PIL import Image, ImageEnhance
 from docopt import docopt
 
-__version__ = '1.1'
+__version__ = '1.2'
 
 _ASCII = "@80GCLft1i;:,. "
 _ASCII_2 = "Q0RMNWBDHK@$U8&AOkYbZGPXgE4dVhgSqm6pF523yfwCJ#TnuLjz7oeat1[]!?I}*{srlcxvi)><\\)|\"/+=^;,:'_-`. "
@@ -92,15 +93,23 @@ def display_output(arguments):
         fg=rgb(0,0,0)
 
     row_len=0
+    if arguments['--bold']:
+        bold=True
+    else:
+        bold=False
     for count,i in enumerate(im.getdata()):
         ascii_char = _ASCII[int(((i/255.0))*(len((_ASCII))-1))]
         try:
             if not arguments['--colors']:
                 raise Exception
             color = rgb(int((img[count][0]/255.0)*5),int((img[count][1]/255.0)*5),int((img[count][2]/255.0)*5))
-            print_color(ascii_char, end='', fg=color, bg=bg)
+            print_color(ascii_char, end='', fg=color, bg=bg, bold=bold)
         except:
-            if bg:
+            if bg and bold:
+                print_color(ascii_char, end='', fg=fg, bg=bg, bold=bold)
+            elif bold:
+                print_color(ascii_char, end='', bold=bold)
+            elif bg:
                 print_color(ascii_char, end='', fg=fg, bg=bg)
             else:
                 print(ascii_char, end='')

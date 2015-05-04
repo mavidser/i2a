@@ -14,6 +14,11 @@ class TestGeneratedArt(unittest.TestCase):
     print('\n'+('-'*70)+'\n\n'+command+'\n\n')
     os.system(command)
 
+  def test_bold_chars(self):
+    command = 'python ../i2a/i2a.py nyan.png --bold'
+    print('\n'+('-'*70)+'\n\n'+command+'\n\n')
+    os.system(command)
+
   def test_invert(self):
     command = 'python ../i2a/i2a.py nyan.png --invert'
     print('\n'+('-'*70)+'\n\n'+command+'\n\n')
