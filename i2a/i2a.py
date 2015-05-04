@@ -44,7 +44,10 @@ def display_output(arguments):
     global _ASCII
     if arguments['--alt-chars']:
         _ASCII=_ASCII_2
-    im = Image.open(arguments['FILE'])
+    try:
+        im = Image.open(arguments['FILE'])
+    except:
+        raise IOError('Unable to open the file.')
     aspect_ratio    = float(im.size[0])/im.size[1]
     scaled_height   = _WIDTH / aspect_ratio
     scaled_width    = _HEIGHT * aspect_ratio*2
