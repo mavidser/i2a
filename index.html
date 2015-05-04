@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>i2a by mavidser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">i2a</h1>
+      <h2 class="project-tagline">i2a creates ASCII art from images right on your terminal.</h2>
+      <a href="https://github.com/mavidser/i2a" class="btn">View on GitHub</a>
+      <a href="https://github.com/mavidser/i2a/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mavidser/i2a/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="i2a" class="anchor" href="#i2a" aria-hidden="true"><span class="octicon octicon-link"></span></a>i2a</h1>
+
+<p>i2a creates ASCII art from images right on your terminal.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a id="option-1-pip" class="anchor" href="#option-1-pip" aria-hidden="true"><span class="octicon octicon-link"></span></a>Option 1: <a href="https://pypi.python.org/pypi/i2a">Pip</a>
+</h3>
+
+<div class="highlight highlight-bash"><pre>$ pip install i2a</pre></div>
+
+<h3>
+<a id="option-2-from-source" class="anchor" href="#option-2-from-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Option 2: From source</h3>
+
+<div class="highlight highlight-bash"><pre>$ git clone https://github.com/mavidser/i2a.git
+$ <span class="pl-c1">cd</span> i2a/
+$ python setup.py install</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic usage</h3>
+
+<div class="highlight highlight-bash"><pre>$ i2a image.jpg</pre></div>
+
+<h3>
+<a id="colored-output" class="anchor" href="#colored-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Colored output</h3>
+
+<div class="highlight highlight-bash"><pre>$ i2a --colors image.jpg</pre></div>
+
+<h3>
+<a id="write-the-art-to-a-file" class="anchor" href="#write-the-art-to-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Write the art to a file</h3>
+
+<div class="highlight highlight-bash"><pre>$ i2a image.jpg <span class="pl-k">&gt;</span> ascii.txt</pre></div>
+
+<h3>
+<a id="if-the-terminal-has-a-light-background" class="anchor" href="#if-the-terminal-has-a-light-background" aria-hidden="true"><span class="octicon octicon-link"></span></a>If the terminal has a light background</h3>
+
+<div class="highlight highlight-bash"><pre>$ i2a image.jpg --invert</pre></div>
+
+<p>or</p>
+
+<pre><code>$ i2a image.jpg --bg=BLACK
+</code></pre>
+
+<h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<p>A complete list of available options:</p>
+
+<ul>
+<li> <code>--colors</code> : Show colored output. i2a assumes that the terminal supports 256 colors.</li>
+<li> <code>--invert</code> : Invert the colors. Suitable for a light background.</li>
+<li> <code>--bg=(BLACK|WHITE)</code>: Specify your own bacckground color.</li>
+<li> <code>--height=&lt;val&gt;</code> : Set the height in number of characters.</li>
+<li> <code>--width=&lt;val&gt;</code> : Set the width in number of characters.</li>
+<li> <code>--contrast=&lt;factor&gt;</code> : Manually set contrast (default value: 1.5, for original image: 1.0).</li>
+<li> <code>--alt-chars</code> : Use an alternate set of (more detailed) characters.</li>
+</ul>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ul>
+<li>Create an issue in the <a href="https://github.com/mavidser/i2a/issues">issue tracker</a> describing the feature.</li>
+<li>Fork the project.</li>
+<li>Create a new branch - <code>git checkout -b new-feature</code>
+</li>
+<li>Commit the changes and push to your branch - <code>git push origin new-feature</code>
+</li>
+<li>Open a <a href="https://github.com/mavidser/i2a/pulls">pull request</a>, referencing the issue you created.</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>See the <a href="https://github.com/mavidser/i2a/blob/master/LICENSE">LICENSE</a> file.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mavidser/i2a">i2a</a> is maintained by <a href="https://github.com/mavidser">mavidser</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
