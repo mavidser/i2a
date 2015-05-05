@@ -24,6 +24,10 @@
 
 <p>i2a creates ASCII art from images right on your terminal.</p>
 
+<p><img src="http://sidverma.net/i2a/i2a-images/i2a.gif" alt=""></p>
+
+<p><a href="http://sidverma.net/i2a/">More sample images</a></p>
+
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
@@ -51,12 +55,12 @@ $ python setup.py install</pre></div>
 <h3>
 <a id="colored-output" class="anchor" href="#colored-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Colored output</h3>
 
-<div class="highlight highlight-bash"><pre>$ i2a --colors image.jpg</pre></div>
+<div class="highlight highlight-bash"><pre>$ i2a --colors --bold image.jpg <span class="pl-c">#Bold for making the output prettier</span></pre></div>
 
 <h3>
 <a id="write-the-art-to-a-file" class="anchor" href="#write-the-art-to-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Write the art to a file</h3>
 
-<div class="highlight highlight-bash"><pre>$ i2a image.jpg <span class="pl-k">&gt;</span> ascii.txt</pre></div>
+<div class="highlight highlight-bash"><pre>$ i2a image.jpg <span class="pl-k">&gt;</span> ascii.txt <span class="pl-c">#Use no filters like bold, color, or bg when writing to a file</span></pre></div>
 
 <h3>
 <a id="if-the-terminal-has-a-light-background" class="anchor" href="#if-the-terminal-has-a-light-background" aria-hidden="true"><span class="octicon octicon-link"></span></a>If the terminal has a light background</h3>
@@ -77,7 +81,7 @@ $ python setup.py install</pre></div>
 <li> <code>--colors</code> : Show colored output. i2a assumes that the terminal supports 256 colors.</li>
 <li> <code>--bold</code> : Show bold characters. Makes the output is easier on eyes.</li>
 <li> <code>--invert</code> : Invert the colors. Suitable for a light background.</li>
-<li> <code>--bg=(BLACK|WHITE)</code>: Specify your own bacckground color.</li>
+<li> <code>--bg=(BLACK|WHITE)</code>: Specify your own background color.</li>
 <li> <code>--height=&lt;val&gt;</code> : Set the height in number of characters.</li>
 <li> <code>--width=&lt;val&gt;</code> : Set the width in number of characters.</li>
 <li> <code>--contrast=&lt;factor&gt;</code> : Manually set contrast (default value: 1.5, for original image: 1.0).</li>
@@ -98,6 +102,11 @@ $ python setup.py install</pre></div>
 </ul>
 
 <h2>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changelog</h2>
+
+<p>See the <a href="https://github.com/mavidser/i2a/releases">releases</a> page.</p>
+
+<h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>See the <a href="https://github.com/mavidser/i2a/blob/master/LICENSE">LICENSE</a> file.</p>
@@ -110,6 +119,16 @@ $ python setup.py install</pre></div>
 
     </section>
 
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-49246827-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
 
   </body>
 </html>
