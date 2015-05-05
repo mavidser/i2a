@@ -3,6 +3,10 @@ i2a
 
 i2a creates ASCII art from images right on your terminal.
 
+![](http://sidverma.net/i2a/i2a-images/i2a.gif)
+
+[More sample images](http://sidverma.net/i2a/)
+
 Installation
 ------------
 
@@ -32,13 +36,13 @@ $ i2a image.jpg
 ### Colored output
 
 ```bash
-$ i2a --colors image.jpg
+$ i2a --colors --bold image.jpg #Bold for making the output prettier
 ```
 
 ### Write the art to a file
 
 ```bash
-$ i2a image.jpg > ascii.txt
+$ i2a image.jpg > ascii.txt #Use no filters like bold, color, or bg when writing to a file
 ```
 
 ### If the terminal has a light background
@@ -73,6 +77,11 @@ Contributing
 - Create a new branch - `git checkout -b new-feature`
 - Commit the changes and push to your branch - `git push origin new-feature`
 - Open a [pull request](https://github.com/mavidser/i2a/pulls), referencing the issue you created.
+
+Changelog
+---------
+
+See the [releases](https://github.com/mavidser/i2a/releases) page.
 
 License
 -------
