@@ -6,15 +6,39 @@ i2a creates ASCII art from images right on your terminal.
 Installation
 ------------
 
+Step 1: Install dependencies
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OSX:
+````
+
+.. code:: bash
+
+    $ brew install libtiff libjpeg webp little-cms2
+
+Linux (Ubuntu):
+```````````````
+
+.. code:: bash
+
+    $ sudo apt-get build-dep python-imaging
+    $ sudo apt-get install libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
+
+For other operating systems, check out the instructions
+`on this page <http://pillow.readthedocs.org/en/latest/installation.html>`__ .
+
+Step 2: Install i2a
+~~~~~~~~~~~~~~~~~~~
+
 Option 1: `Pip <https://pypi.python.org/pypi/i2a>`__
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+````````````````````````````````````````````````````
 
 .. code:: bash
 
     $ pip install i2a
 
 Option 2: From source
-~~~~~~~~~~~~~~~~~~~~~
+`````````````````````
 
 .. code:: bash
 
@@ -93,3 +117,4 @@ License
 
 See the
 `LICENSE <https://github.com/mavidser/i2a/blob/master/LICENSE>`__ file.
+
