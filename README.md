@@ -3,9 +3,9 @@ i2a
 
 i2a creates ASCII art from images right on your terminal.
 
-![](http://sidverma.net/i2a/i2a-images/i2a.gif)
+![](https://sidverma.io/i2a/i2a-images/i2a.gif)
 
-[More sample images](http://sidverma.net/i2a/)
+[More sample images](https://sidverma.net/i2a/)
 
 Installation
 ------------
