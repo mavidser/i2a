@@ -24,9 +24,10 @@ Options:
 """
 
 from __future__ import print_function
+from __future__ import absolute_import
 from setuptools import setup, find_packages
 import subprocess
-from colors import *
+from i2a.colors import *
 from PIL import Image, ImageEnhance
 from docopt import docopt
 
