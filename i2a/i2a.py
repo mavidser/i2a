@@ -11,16 +11,16 @@ i2a creates ASCII art from images right on your terminal.
 Usage: i2a [options] [FILE]
 
 Options:
-  -h --help            Show this screen.
-  -v --version         Show version.
-  -c --colors          Show colored output.
-  -b --bold            Output bold characters
-  -i --invert          Invert the colors.
-  --bg=(BLACK|WHITE)   Specify the background color.
-  --height=<val>       Set the height in number of characters.
-  --width=<val>        Set the width in number of characters.
-  --contrast=<factor>  Manually set contrast [default: 1.5].
-  --alt-chars          Use an alternate set of characters.
+  -h --help              Show this screen.
+  -v --version           Show version.
+  -c --colors            Show colored output.
+  -b --bold              Output bold characters
+  -i --invert            Invert the colors.
+  -B --bg=(BLACK|WHITE)  Specify the background color.
+  -H --height=<val>      Set the height in number of characters.
+  -W --width=<val>       Set the width in number of characters.
+  -C --contrast=<factor> Manually set contrast [default: 1.5].
+  -a --alt-chars         Use an alternate set of characters.
 """
 
 from __future__ import print_function
